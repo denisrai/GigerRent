@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <script src="js/vendor/jquery.js"></script>
+        <script src="js/foundation.min.js"></script>
+        
+        <link rel="stylesheet" href="css/normalize.css"></link>
+        <link rel="stylesheet" href="css/foundation.css"></link>
+        <link rel="stylesheet" href="css/stylesheet.css"></link>
+        <title>
+            <ui:insert name="title">Default Title</ui:insert>
+        </title>
+    </h:head>
+
+    <h:body>
+        <div id="wrap">
+            <div class="container-header">
+                <div class="row header">
+                    <div class="columns large-3 portal-logo left">
+                        <a alt="Página inicial" href="/GigerRent/">
+                            <img src="img/logo_black.png" title="Ginger Rent" alt="Ginger Rent"/>
+                        </a>
+                    </div>
+                    <div class="columns large-3">
+                        <div>
+                            <a href="login.jsf" class="button small radius">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-nav-bar">
+                <div class="nav-bar">
+                    <div class="row">
+                        <div class="columns large-12">
+                            <nav class="top-bar">
+                                <ul class="title-area">
+                                    <li class="name"><!-- Leave this empty --></li>
+                                </ul>
+
+                                <section class="top-bar-section">
+                                    <ul class="left">
+                                        <li class="#{request.requestURI == '/GigerRent/' ? 'active' : ''}"><a href="/GigerRent/">Principal</a></li>
+                                        <li class="divider"></li>
+                                        <li class="#{request.requestURI == '/GigerRent/list_search.jsf' ? 'active' : ''}"><a href="/GigerRent/list_search.jsf">Carros</a></li>
+                                    </ul>
+                                </section>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content" class="row content">
+                <ui:insert name="content"></ui:insert>
+            </div>
+        </div>
+        
+        <div id="footer" class="container-footer">
+            <div class="container-nav-footer">
+                <div class="row nav-footer">
+                    <div class="columns large-3">
+
+                    </div>
+                    <div class=""></div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            $(document).foundation();
+        </script>
+    </h:body>
+    
+</html>
+

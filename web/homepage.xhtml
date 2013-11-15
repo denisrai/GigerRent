@@ -1,0 +1,93 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Aluguel de Carros
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="columns large-6 box-search-cars">
+            <p:panel header="Procurar carros">
+                <h:form>
+                    <h:outputLabel value="Retirar o carro em:"/>
+                    <h:inputText label="Retirar o carro em:"></h:inputText>
+                    
+                    <h:outputLabel value="Devolver o carro em:"/>
+                    <h:inputText label="Devolver o carro em:"></h:inputText>
+                    
+                    <h:outputLabel value="Data da retirada:"/>
+                    <p:calendar value="#{calendarController.dataRetirada}" id="data-retirada"/>
+                    
+                    <h:outputLabel value="Data da devolução:"/>
+                    <p:calendar value="#{calendarController.dataDevolucao}" id="data-devolucao"/>
+                    
+                    <h:commandButton type="submit" value="Procurar" class="button small radius"></h:commandButton>
+                </h:form>
+            </p:panel>
+        </div>
+        
+        <div class="columns large-6 box-search-cars">
+            <ul data-orbit=" " data-options="timer_speed:3500; bullets:false; resume_on_mouseout:true;">
+                <li>
+                    <img src="img/banners/budget.jpg" />
+                    <div class="orbit-caption">...</div>
+                </li>
+                <li>
+                    <img src="img/banners/dollar.jpg" />
+                    <div class="orbit-caption">...</div>
+                </li>
+                <li>
+                    <img src="img/banners/hertz.jpg" />
+                    <div class="orbit-caption">...</div>
+                </li>
+            </ul>    
+        </div>
+        
+        <div class="columns large-12">
+            <p:panel header="Promoções">
+                <ul data-orbit=" " data-options="timer_speed:3500; bullets:false; resume_on_mouseout:true; navigation_arrows:false;">
+                    <li>
+                        <div class="left">
+                            <img src="img/carros/celta.png" />
+                        </div>
+                        <div>
+                            <p>Um veículo grupo A por apenas R$62,00 ao dia mais taxas!</p>
+                            <h7>a partir de R$90,00 ao dia</h7>
+                            <strong>Grupo A: </strong><span>Celta </span>
+                            <strong>Incluso: </strong><span>Km Livre</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left">
+                            <img src="img/carros/classic.png" />
+                        </div>
+                        <div>
+                            <p>Um veículo grupo A por apenas R$62,00 ao dia mais taxas!</p>
+                            <h7>a partir de R$90,00 ao dia</h7>
+                            <strong>Grupo A: </strong><span>Celta </span>
+                            <strong>Incluso: </strong><span>Km Livre</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left">
+                            <img src="img/carros/palio.png" />
+                        </div>
+                        <div>
+                            <p>Um veículo grupo A por apenas R$62,00 ao dia mais taxas!</p>
+                            <h7>a partir de R$90,00 ao dia</h7>
+                            <strong>Grupo A: </strong><span>Celta </span>
+                            <strong>Incluso: </strong><span>Km Livre</span>
+                        </div>
+                    </li>
+                </ul>
+            </p:panel>
+        </div>
+    </ui:define>
+
+</ui:composition>
+
+

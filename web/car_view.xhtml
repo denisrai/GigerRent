@@ -1,0 +1,114 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Informacao carro
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="columns large-9">
+            <div class="row container-car">
+                <div class="columns large-4">
+                     <div class="image-car left">
+                        <img alt="Palio" src="img/carros/palio.png" />
+                    </div>
+                </div>
+                
+                <div class="columns large-8">
+                    <div class="container-info">
+                        <h3>Nome do carro</h3>
+                        <p>Descrição</p>
+
+                        <h2>Valor Total R$1.047,20</h2>
+                        <span>Parcelas de até 10x sem juros em seu catao de credito</span>
+
+                        <a class="button small radius">Solicitar Reserva</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-container tabs" data-section="tabs" id="more-info-car-container">
+                <section class="section active" id="carac" title="Características">
+                    <p class="title" data-section-title="a"><a href="#carac">Características</a></p>
+                    
+                    <div class="content clear" data-section-content="a">
+                        <h4>Características do Grupo
+                            <hr/>
+                        </h4>
+
+                        <div class="columns large-4">
+                            <img src="img/carros/palio.png"/>
+                        </div>
+
+                        <div class="columns large-8">
+                            <h3>Nome do carro</h3>
+                            <p>Descrição</p>
+
+                            <ul class="no-bullet">
+                                <li>
+                                    <span class="left">Motorização</span>
+
+                                    <span clas="right">1.0</span>
+                                </li>
+                                <li>
+                                    <span class="left">Portas</span>
+
+                                    <span clas="right">2</span>
+                                </li>
+                                <li>
+                                    <span class="left">Ocupantes</span>
+
+                                    <span clas="right">5</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section" id="taxas" title="Valores e Taxas">
+                    <p class="title" data-section-title="a"><a href="#taxas">Características</a></p>
+                    
+                    <div class="content clear" data-section-content="a">
+                        <h4>Valores Referenciais
+                            <hr/>
+                        </h4>
+
+                        <ul class="no-bullet">
+                            <li>
+                                <span class="left">Tipo de tarifa</span>
+
+                                <span clas="right">Km Livre</span>
+                            </li>
+                            <li>
+                                <span class="left">Total de diárias</span>
+
+                                <span clas="right">21</span>
+                            </li>
+                            <li>
+                                <strong class="left">Valor total</strong>
+
+                                <strong clas="right">R$155</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <div class="columns large-9">
+            
+            <div class="merchandising">
+                
+            </div>
+
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
+
+

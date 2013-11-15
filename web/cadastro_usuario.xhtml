@@ -1,0 +1,103 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Informacao carro
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="columns large-9">
+            <div class="row">
+                <div class="columns large-12">
+                    <p:panel header="Já é cliente">
+                        <h:form>
+                            <h:outputLabel value="Informe seu email:"/>
+                            <h:inputText label="Informe seu email:"></h:inputText>
+
+                            <h:outputLabel value="Informe sua senha:"/>
+                            <h:inputText label="Informe sua senha:"></h:inputText>
+                            
+                            <h:commandButton type="submit" value="Acessar Conta" class="button small radius"></h:commandButton>
+                        </h:form>
+                    </p:panel>
+                </div>
+                
+                <div class="columns large-12">
+                    
+                    <p:panel header="Cadastre-se para solicitar sua reserva">
+                        
+                        <h6>Locatário titular da reserva
+                            <hr/>
+                        </h6>
+                        
+                        <h:form>
+                            <h:outputLabel value="Nome:"/>
+                            <h:inputText label="Nome:"></h:inputText>
+                            
+                            <h:outputLabel value="Data de nascimento:"/>
+                            <p:inputMask value="#{maskController.data}" mask="99/99/9999"/> 
+                            
+                            <h:outputLabel value="Número do documento:"/>
+                            <h:inputText label="Número do documento:"></h:inputText>
+                            
+                            <h:outputLabel value="Telefone:"/>
+                            <h:inputText label="Telefone:"></h:inputText>
+                            
+                            <h:outputLabel value="Endereço de email:"/>
+                            <h:inputText label="Endereço de email:"></h:inputText>
+
+                            <h:outputLabel value="Senha:"/>
+                            <h:inputText label="Senha:"></h:inputText>
+                            
+                            <h:outputLabel value="Confirmar senha:"/>
+                            <h:inputText label="Confirmar senha:"></h:inputText>
+
+                            
+                            <h6>Condições de pagamento no destino
+                                <hr/>
+                            </h6>
+
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>Local de Pagamento:</td>
+                                        <td>O locatário realizará o pagamento dos serviços contratados diretamente à locadora na data de retirada do veículo.</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Forma de Pagamento:</td>
+                                        <td>Cartão de Crédito: Visa, MasterCard, AmericanExpress: (Obrigatório cartão vinculado a instituição bancária).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <h:commandButton type="submit" value="Finalizar Solicitação de Reserva" class="button small radius"></h:commandButton>
+                        
+                        </h:form>
+                        
+                    </p:panel>
+                    
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="columns large-9">
+            
+            <div class="merchandising">
+                
+            </div>
+
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
+
+

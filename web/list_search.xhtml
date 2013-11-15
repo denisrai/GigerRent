@@ -1,0 +1,80 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Listar carros
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="columns large-3 box-search-cars">
+            <p:panel header="Filtro">
+                <h:form>
+                    <fieldset>
+                        <legend>Localização das Lojas</legend>
+                        <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
+                        <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
+                        
+                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                    </fieldset>
+                </h:form>
+                
+                <h:form>
+                    <fieldset>
+                        <legend>Configuração dos Grupos</legend>
+                        <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
+                        <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
+                        
+                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                    </fieldset>
+                </h:form>
+                
+                <h:form>
+                    <fieldset>
+                        <legend>Categoria de Carros</legend>
+                        <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
+                        <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
+                        
+                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                    </fieldset>
+                </h:form>
+            </p:panel>
+        </div>
+        
+        <div class="columns large-9 box-search-cars">
+            <p:panel id="content-search">
+                <div class="item-carro row">
+                    <div class="columns large-12 title-item">
+                        <div>
+                            <span>Celta</span>
+                        </div>
+                    </div>
+                    
+                    <div class="columns large-4 car-image">
+                        <img src="img/carros/celta.png" />
+                    </div>
+                    
+                    <div class="columns large-8 car-info left">
+                        <div class="left">
+                            <p>Descricao de cada carro</p>
+                        </div>
+                        
+                        <div class="container-valor-aluguel right">
+                            <h5>R$71,37/dia</h5>
+                            <a class="button small radius right" href="/GigerRent/car_view.jsf">Alugar</a>
+                        </div>
+                    </div>
+                </div>
+            </p:panel>
+        </div>
+        
+        
+        
+    </ui:define>
+
+</ui:composition>
+
+

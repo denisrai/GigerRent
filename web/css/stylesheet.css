@@ -1,0 +1,101 @@
+html, body {height: 100%;}
+
+#wrap {min-height: 100%;}
+
+#content {
+    overflow:auto;
+    padding-bottom: 150px;
+    background: #FFF;
+    padding-top: 15px;
+}
+
+#footer {
+    position: relative;
+    margin-top: -150px;
+    height: 150px;
+    clear:both;
+} 
+
+/*Opera Fix*/
+body:before {
+    content:"";
+    height:100%;
+    float:left;
+    width:0;
+    margin-top:-32767px;/
+}
+
+body{
+    background: #ffe5cc;
+}
+
+/* Sobreescrevendo o foundation */
+
+button { margin-bottom: 0; }
+
+
+.container-header {
+    width: 100%;
+    background: #ffc387; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffc387 0%, #ff8300 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffc387), color-stop(100%,#ff8300)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffc387 0%,#ff8300 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffc387 0%,#ff8300 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffc387 0%,#ff8300 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffc387 0%,#ff8300 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc387', endColorstr='#ff8300',GradientType=0 ); /* IE6-9 */
+    
+    border-bottom: 1px solid #FFF;
+}
+
+.container-nav-bar { background: #111111; }
+
+.container-footer { background: #FFF; }
+
+.container-nav-footer {
+    min-height: 100px;
+    
+    background: -moz-linear-gradient(top,  #ffc387 0%, #ff8300 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffc387), color-stop(100%,#ff8300)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffc387 0%,#ff8300 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to bottom,  #ffc387 0%,#ff8300 100%); /* W3C */
+    
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.6);
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+}
+
+/* Reescrevendo o layout do UI */
+
+.ui-panel {
+    border: none;
+    padding: 0;
+}
+
+.ui-panel .ui-panel-titlebar,
+.ui-panel .ui-panel-content {
+    padding: 0;
+}
+
+.ui-panel .ui-panel-content { 
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.ui-panel .ui-panel-titlebar {
+    padding-bottom: 0.3em;
+    background: none;
+    border: transparent;
+    border-bottom: 2px solid #FF8607;
+    border-radius: 0;
+}
+
+/* Layout do filtro */
+
+.box-search-cars legend { font-size: 14px; }
+
+/* Layout da listagem */
+.item-carro {
+    box-shadow: 0px 16px 20px -20px #000;
+    padding: 10px 0;    
+}
