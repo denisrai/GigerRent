@@ -17,7 +17,6 @@ public class HibernateUtility {
             AnnotationConfiguration cfg = new AnnotationConfiguration();
             //cfg.configure("hibernate.cfg.xml");
             cfg.addAnnotatedClass(Aluguel.class);
-            cfg.addAnnotatedClass(Autorizacao.class);
             cfg.addAnnotatedClass(Carro.class);
             cfg.addAnnotatedClass(Cidade.class);
             cfg.addAnnotatedClass(Cliente.class);
@@ -29,14 +28,12 @@ public class HibernateUtility {
             cfg.addAnnotatedClass(LojaTipo.class);
             cfg.addAnnotatedClass(Marca.class);
             cfg.addAnnotatedClass(Modelo.class);
-            cfg.addAnnotatedClass(Pessoa.class);
             cfg.addAnnotatedClass(Sac.class);
             cfg.addAnnotatedClass(SacTipo.class);
             cfg.addAnnotatedClass(Status.class);
             cfg.addAnnotatedClass(Tamanho.class);
             cfg.addAnnotatedClass(TipoCarro.class);
             cfg.addAnnotatedClass(UF.class);
-            cfg.addAnnotatedClass(Permissao.class);
             cfg.addAnnotatedClass(Usuario.class);
 
             return cfg.configure().buildSessionFactory();

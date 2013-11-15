@@ -11,15 +11,23 @@
             <center>
                 <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkred"/>
             </center>
-            <h:form action="j_spring_security_check" method="post">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="j_username" value="Username: *" /> 
-                    <h:inputText id="j_username" required="true"/>
-                    <h:outputLabel for="j_password" value="Password: * " />
-                    <h:inputSecret id="j_password" required="true"/>
-                    <h:commandButton value="Login"/>
-                </h:panelGrid>
-            </h:form>
+            <form action="j_spring_security_check" method="post">
+                <table cellpadding="5">
+                    <tbody>
+                        <tr>
+                            <td><label for="j_username">Username:</label></td>
+                            <td><input id="j_username" type="text" name="j_username" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="j_password">Password:</label></td>
+                            <td><input id="j_password" type="password" name="j_password" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" name="j_idt12" value="Login" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </p:dialog>
     </h:body>
 </html>

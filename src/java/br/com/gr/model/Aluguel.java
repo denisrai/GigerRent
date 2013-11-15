@@ -46,13 +46,13 @@ public class Aluguel implements Serializable
     Set<Carro> carros = new HashSet<Carro>();
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "idCliente", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
-    @Cascade(CascadeType.SAVE_UPDATE)     
+    @Cascade(CascadeType.SAVE_UPDATE)
     Cliente cliente;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "idFuncionario", insertable = false, updatable = false)
     @Fetch(FetchMode.JOIN)
     @Cascade(CascadeType.SAVE_UPDATE) 
     Funcionario funcionario;

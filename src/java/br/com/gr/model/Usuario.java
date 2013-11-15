@@ -9,17 +9,26 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int id;
 
     private String username;
 
-    @OneToMany
-    private List<Permissao> permissoes;
+    private String permissoes;
 
     private String password;
 
     @Column(columnDefinition = "boolean")
     private boolean enable;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getUsername() {
         return username;
     }
@@ -28,11 +37,11 @@ public class Usuario implements Serializable {
         this.username = username;
     }
 
-    public List<Permissao> getPermissoes() {
+    public String getPermissoes() {
         return permissoes;
     }
 
-    public void setPermissoes(List<Permissao> permissoes) {
+    public void setPermissoes(String permissoes) {
         this.permissoes = permissoes;
     }
 

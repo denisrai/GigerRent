@@ -8,6 +8,7 @@ import br.com.gr.dao.LojaTipoDao;
 import br.com.gr.model.Cidade;
 import br.com.gr.model.Loja;
 import br.com.gr.model.LojaTipo;
+import br.com.gr.model.UF;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import javax.faces.model.SelectItem;
 
 @ManagedBean
 @ViewScoped
@@ -29,20 +31,18 @@ public class LojaController implements Serializable {
     private CidadeDao cidadeDao = new CidadeDao();
     private LojaTipoDao lojaTipoDao = new LojaTipoDao();
     private LojaDao lojaDao = new LojaDao();
-    private String regiaoSelect;
-    private String estadoSelect;
-    private String cidadeSelect;
     private String lojaTipoSelect;
     private String nomeLoja;
     private String logradouro;
     private List<String> nomesLoja = new ArrayList<String>();
     private List<String> lojasTipoStr = new ArrayList<String>();
-    private List<String> regioesStr = new ArrayList<String>();
     private List<String> estados = new ArrayList<String>();
     private List<String> cidades = new ArrayList<String>();
     
     private DataModel listaLojas;
     private Loja loja;
+    private String estadoSelect;
+    private String cidadeSelect;
 
     //METODO PRINCIPAL QUE CADASTRA UM NOVO CARRO
     public void adiciona() {
@@ -115,6 +115,19 @@ public class LojaController implements Serializable {
         dao.remove(lojaTemp);
         return "index";
     }
+    
+    public List<SelectItem> getAllCities(){
+        List<SelectItem> items = new ArrayList<SelectItem>();
+        List<Cidade> listaCidades = cidadeDao.listar();
+        for(Cidade cidade: listaCidades){
+            items.add(new SelectItem(cidade.getIdCidade(), cidade.getNome()));
+        }
+        return items;
+     }
+    
+    public List<UF> getAllUF(){
+        return ufDao.listar();
+    }
 
     //METODO QUE ENCONTRA AS CIDADES DE UM CERTO ESTADO
     public void escutandoEstado() {
@@ -135,6 +148,9 @@ public class LojaController implements Serializable {
     }
 
     public String getEstadoSelect() {
+        if (estadoSelect == null) {
+            return "--Selecione--";
+        }
         return estadoSelect;
     }
 

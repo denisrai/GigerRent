@@ -8,32 +8,21 @@ public class TestandoCRUD {
 
     public static void main(String[] args) {
         
-        Permissao ru = new Permissao();
-        ru.setName("ROLE_USER");
-        Permissao ra = new Permissao();
-        ra.setName("ROLE_ADMIN");
-        PermissaoDao permissao_dao = new PermissaoDao();
-        permissao_dao.inserir(ra);
-        permissao_dao.inserir(ru);
+        UsuarioDao user_dao = new UsuarioDao();
         
-        
-        Usuario admin = new Usuario();
-        admin.setUsername("admin");
+        Funcionario admin = new Funcionario();
+        admin.setUsername("root");
         admin.setPassword("123");
         admin.setEnable(true);
-        List<Permissao> permissoes = new ArrayList<Permissao>();
-        permissoes.add(ra);
-        admin.setPermissoes(permissoes);
-        UsuarioDao user_dao = new UsuarioDao();
+        admin.setPermissoes("ROLE_ADMIN");
         user_dao.inserir(admin);
-        Usuario user = new Usuario();
-        user.setEnable(true);
-        user.setUsername("user");
-        user.setPassword("123");
-        permissoes.clear();
-        permissoes.add(ru);
-        user.setPermissoes(permissoes);
-        user_dao.inserir(user);
+        
+//        Cliente user = new Cliente();
+//        user.setEnable(true);
+//        user.setUsername("usuario");
+//        user.setPassword("123");
+//        user.setPermissoes("ROLE_USER");
+//        user_dao.inserir(user);
         
 //        RegiaoVO sudeste = new RegiaoVO();
 //        RegiaoVO centroOeste = new RegiaoVO();
