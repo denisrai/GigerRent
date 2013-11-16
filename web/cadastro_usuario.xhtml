@@ -14,15 +14,16 @@
             <div class="row">
                 <div class="columns large-12">
                     <p:panel header="Já é cliente">
-                        <h:form>
-                            <h:outputLabel value="Usuário:"/>
-                            <h:inputText label="Usuário:"></h:inputText>
-
-                            <h:outputLabel value="Senha:"/>
-                            <h:inputText label="Senha:"></h:inputText>
-                            
-                            <h:commandButton type="submit" value="Acessar Conta" class="button small radius"></h:commandButton>
-                        </h:form>
+                        <center>
+                            <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkred"/>
+                        </center>
+                        <form action="j_spring_security_check" method="post">
+                            <label for="j_username">Usuário:</label>
+                            <input id="j_username" type="text" name="j_username" />
+                            <label for="j_password">Senha:</label>
+                            <input id="j_password" type="password" name="j_password" value="" />
+                            <input class="button small radius" type="submit" name="j_idt12" value="Acessar conta" />
+                        </form>
                     </p:panel>
                 </div>
                 
@@ -34,27 +35,36 @@
                             <hr/>
                         </h6>
                         
-                        <h:form>
+                        <h:form prependId="false">
                             <h:outputLabel value="Nome:"/>
-                            <h:inputText label="Nome:"></h:inputText>
+                            <h:inputText value="#{usuarioController.novoUsuario.nome}" label="Nome:"></h:inputText>
+                            
+                            <h:outputLabel value="Nome de usuário:"/>
+                            <h:inputText value="#{usuarioController.novoUsuario.username}" label="Nome de usuário:"></h:inputText>
                             
                             <h:outputLabel value="Data de nascimento:"/>
-                            <p:inputMask value="#{maskController.data}" mask="99/99/9999"/> 
+                            <h:inputText value="#{usuarioController.novoUsuario.dataNascimento}" label="Data de nascimento:"/> 
                             
-                            <h:outputLabel value="Número do documento:"/>
-                            <h:inputText label="Número do documento:"></h:inputText>
+                            <h:outputLabel value="Número da CNH"/>
+                            <h:inputText value="#{usuarioController.novoUsuario.CNH}" label="Número da CNH:"></h:inputText>
+                            
+                            <h:outputLabel value="Número do CPF/CNPJ"/>
+                            <h:inputText value="#{usuarioController.novoUsuario.CPF_CNPJ}" label="Número do CPF/CNPJ:"></h:inputText>
+                            
+                            <div>
+                                <h:outputLabel value="Sexo"/>
+                                <label for="sexo"><input name="sexo" type="radio" id="sexo" checked="checked"/><span class="radio checked"></span>Masculino</label>
+                                <label for="sexo"><input name="sexo" type="radio" id="sexo" /><span class="radio"></span>Feminino</label>
+                            </div> 
                             
                             <h:outputLabel value="Telefone:"/>
-                            <h:inputText label="Telefone:"></h:inputText>
+                            <h:inputText value="#{usuarioController.novoUsuario.telefone}" label="Telefone:"></h:inputText>
                             
-                            <h:outputLabel value="Endereço de email:"/>
-                            <h:inputText label="Endereço de email:"></h:inputText>
-
                             <h:outputLabel value="Senha:"/>
-                            <h:inputText label="Senha:"></h:inputText>
+                            <h:inputSecret value="#{usuarioController.novoUsuario.password}" label="Senha:"></h:inputSecret>
                             
                             <h:outputLabel value="Confirmar senha:"/>
-                            <h:inputText label="Confirmar senha:"></h:inputText>
+                            <h:inputSecret label="Confirmar senha:"></h:inputSecret>
 
                             
                             <h6>Condições de pagamento no destino
@@ -75,8 +85,7 @@
                                 </tbody>
                             </table>
                             
-                            <h:commandButton type="submit" value="Finalizar Solicitação de Reserva" class="button small radius"></h:commandButton>
-                        
+                            <p:commandButton actionListener="#{usuarioController.cadastrarUsuario}" value="Finalizar Solicitação de Reserva" styleClass="button small radius" ajax="false" ></p:commandButton>
                         </h:form>
                         
                     </p:panel>

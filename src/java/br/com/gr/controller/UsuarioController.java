@@ -6,10 +6,13 @@ import br.com.gr.model.Funcionario;
 import br.com.gr.model.Usuario;
 
 import java.io.Serializable;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,9 +23,14 @@ import org.springframework.security.core.userdetails.User;
 public class UsuarioController implements Serializable {
     private Usuario usuario;
     private UsuarioDao usuarioDao = new UsuarioDao();
- 
+    Map<String,String> requestParams;
+    
+    private Usuario novoUsuario = new Cliente();
+
     @PostConstruct
     public void initMyBean(){
+        requestParams = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+
         usuario = new Usuario();
         SecurityContext context = SecurityContextHolder.getContext();
         if (context instanceof SecurityContext){
@@ -35,6 +43,20 @@ public class UsuarioController implements Serializable {
                 }
             }
         }
+    }
+    
+    public void cadastrarUsuario(ActionEvent actionEvent){
+        if(!novoUsuario.getCPF_CNPJ().isEmpty() && !novoUsuario.getUsername().isEmpty()){
+            usuarioDao.inserir(novoUsuario);
+        }
+    }
+    
+    public Usuario getNovoUsuario() {
+        return novoUsuario;
+    }
+
+    public void setNovoUsuario(Usuario novoUsuario) {
+        this.novoUsuario = novoUsuario;
     }
  
     public Usuario getUsuario() {

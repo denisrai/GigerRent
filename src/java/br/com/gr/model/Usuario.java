@@ -13,6 +13,8 @@ public class Usuario implements Serializable {
     int id;
 
     private String username;
+    
+    private String CPF_CNPJ;
 
     private String permissoes;
 
@@ -59,5 +61,13 @@ public class Usuario implements Serializable {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public String getCPF_CNPJ() {
+        return CPF_CNPJ;
+    }
+
+    public void setCPF_CNPJ(String CPF_CNPJ) {
+        this.CPF_CNPJ = CPF_CNPJ;
     }
 }

@@ -11,7 +11,7 @@
         <intercept-url pattern="/protected/*" access="isAuthenticated()"/>
         <intercept-url pattern="/protected/admin/*" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/protected/user/*" access="hasRole('ROLE_USER')"/>
-        <form-login login-page="/login.jsf" authentication-failure-url="/login.jsf?erro=true"/>
+        <form-login login-page="/login.jsf" authentication-failure-url="/cadastro_usuario.jsf?erro=true"/>
     </http>
      
     <authentication-manager>

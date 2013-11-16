@@ -51,10 +51,6 @@ public class Cliente extends Usuario implements Serializable
     Date dataNascimento;
     Character sexo;
 
-
-
-
-
     public String getNome() {
         return nome;
     }

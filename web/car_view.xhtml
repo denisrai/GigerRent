@@ -43,6 +43,7 @@
                         <span>Parcelas de até 10x sem juros em seu catao de credito</span>
 
                         <form action="#{not empty usuarioController.usuario ? 'confirma_aluguel.jsf' : 'cadastro_usuario.jsf'}">
+                            <input type="hidden" name="from_reserva" value="#{carroController.carro.idCarro}" />
                             <input class="button small radius" type="submit" name="sumit" value="Solicitar Reserva" />
                         </form>
                     </div>
