@@ -13,10 +13,8 @@ import br.com.gr.model.UF;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -44,41 +42,6 @@ public class LojaController implements Serializable {
     private String estadoSelect;
     private String cidadeSelect;
 
-    //METODO PRINCIPAL QUE CADASTRA UM NOVO CARRO
-    public void adiciona() {
-        List<String> nomesExistentes = new ArrayList<String>();
-        for (Loja loja : lojaDao.listar()) {
-            nomesExistentes.add(loja.getNome());
-        }
-        //VERIFICO SE O NOME DE FILIAL DIGITADO JA EXISTE NO BANCO
-        if (nomesExistentes.contains(nomeLoja)) {
-            nomeLoja = "";
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                    FacesMessage.SEVERITY_ERROR, "ESSE NOME DE FILIAL JA EXISTE, TENTE OUTRO", ""));
-        } else {
-            Loja novaLoja = new Loja();
-            novaLoja.setNome(nomeLoja);
-            
-            //TODO: Ver o logradouro
-            novaLoja.setLogradouro(logradouro);
-
-            Cidade cidadeObj = cidadeDao.getObjByName(cidadeSelect);
-            novaLoja.setCidade(cidadeObj);
-
-            for (LojaTipo lojaTipo : lojaTipoDao.listar()) {
-                if (lojaTipo.getNomeTipo().equals(lojaTipoSelect)) {
-                    novaLoja.setLojaTipo(lojaTipo);
-                }
-            }
-
-            lojaDao.inserir(novaLoja);
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(
-                    FacesMessage.SEVERITY_INFO, "FILIAL CADASTRADA COM SUCESSO!", ""));
-        }
-
-    }
-    
     public void adicionarLoja(ActionEvent actionEvent){
         lojaDao.inserir(loja);
     }
@@ -127,14 +90,6 @@ public class LojaController implements Serializable {
     
     public List<UF> getAllUF(){
         return ufDao.listar();
-    }
-
-    //METODO QUE ENCONTRA AS CIDADES DE UM CERTO ESTADO
-    public void escutandoEstado() {
-        if (estadoSelect != null) {
-            cidades.clear();
-            cidades = cidadeDao.buscaCidadesEstado(estadoSelect);
-        }
     }
 
     public List<String> getEstados() {
@@ -197,26 +152,20 @@ public class LojaController implements Serializable {
     public void setNomesLoja(List<String> nomesLoja) {
         this.nomesLoja = nomesLoja;
     }
+    
+    
+    //Tela de busca da homepage
+    public List<SelectItem> getTodasLojas(){
+        List<Loja> lojas = lojaDao.listar();
 
-    //GET DINAMICO DO TIPOS DE FILIAIS QUE SAO TRAZIDOS DA BASE DE DADOS
-    public List<String> getLojasTipoStr() {
-        lojasTipoStr.clear();
-        List<LojaTipo> lojasTipo = lojaTipoDao.listar();
-        for (LojaTipo c : lojasTipo) {
-            lojasTipoStr.add(c.getNomeTipo());
+        List<SelectItem> itens = new ArrayList<SelectItem>(lojas.size());
+
+        for(Loja item : lojas){
+            itens.add(new SelectItem(item.getIdLoja(), item.getNome()));
         }
-        return lojasTipoStr;
-    }
 
-    public void setTiposfilStr(List<String> lojasTipoStr) {
-        this.lojasTipoStr = lojasTipoStr;
+        return itens;
     }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
-    }
+    
+    
 }

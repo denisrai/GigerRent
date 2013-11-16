@@ -1,0 +1,67 @@
+<ui:composition template="templateCrud.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content_crud">
+        <h1>Gerenciador de carros</h1><br/>
+        <h:outputText value="Bem vindo #{usuarioController.usuario.username}, seus são:"/>
+        <br/><br/>
+        
+        <h:form prependId="false">
+            <p:commandLink value="Cadastrar nova carro" actionListener="#{carroController.prepararAdicionarCarro}" update="infosCarro" oncomplete="dialogGerCarro.show()"/>
+        </h:form>
+        
+        <h:form prependId="false">
+            <p:dataTable id="tabela" var="carro" value="#{carroController.listarCarros}">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{carro.modelo.nomeModelo}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{carro.placa}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Alterar"/>
+                    </f:facet>
+                    <p:commandButton actionListener="#{carroController.prepararAlterarCarro}" value="Alterar" update="infosCarro" oncomplete="dialogGerCarro.show()"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Excluir"/>
+                    </f:facet>
+                    <h:commandLink action="#{carroController.excluirCarro}" value="Excluir"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="dialog_crud">
+        <p:dialog header="Gerencia de carros" widgetVar="dialogGerCarro" resizable="false" modal="true" showEffect="slide" width="500"> 
+            <h:form prependId="false" enctype="multipart/form-data">
+                <h:panelGrid id="infosCarro" columns="2" style="margin-bottom:10px">
+ 
+                    <h:outputLabel for="titulo" value="Nome" />
+                    <h:inputText id="titulo" value="#{carroController.carro.placa}"/>
+                    
+                    <p:fileUpload value="#{carroController.image_car}" auto="true" mode="simple" /> 
+
+                    <p:commandButton update="tabela" oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.adicionarCarro}" value="Inserir"/>
+                    <p:commandButton update="tabela" oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.alterarCarro}" value="Alterar"/>
+ 
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>
+
+

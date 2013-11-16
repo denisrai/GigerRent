@@ -12,21 +12,28 @@
     <ui:define name="content">
         <div class="columns large-6 box-search-cars">
             <p:panel header="Procurar carros">
-                <h:form>
+                <form action="list_search.jsf" method="GET">
                     <h:outputLabel value="Retirar o carro em:"/>
-                    <h:inputText label="Retirar o carro em:"></h:inputText>
+                    
+                    <h:selectOneMenu value="#{lojaController.loja.idLoja}" required="true">
+                        <f:selectItem itemValue="" itemLabel="Selecione..." />
+                        <f:selectItems value="#{lojaController.todasLojas}" />
+                    </h:selectOneMenu>
                     
                     <h:outputLabel value="Devolver o carro em:"/>
-                    <h:inputText label="Devolver o carro em:"></h:inputText>
+                    <h:selectOneMenu value="#{lojaController.loja.idLoja}" required="true">
+                        <f:selectItem itemValue="" itemLabel="Selecione..." />
+                        <f:selectItems value="#{lojaController.todasLojas}" />
+                    </h:selectOneMenu>
                     
                     <h:outputLabel value="Data da retirada:"/>
-                    <p:calendar value="#{calendarController.dataRetirada}" id="data-retirada"/>
+                    <p:calendar required="true" value="#{calendarController.dataRetirada}" id="data-retirada"/>
                     
                     <h:outputLabel value="Data da devolução:"/>
-                    <p:calendar value="#{calendarController.dataDevolucao}" id="data-devolucao"/>
+                    <p:calendar required="true" value="#{calendarController.dataEntrega}" id="data-devolucao"/>
                     
-                    <h:commandButton type="submit" value="Procurar" class="button small radius"></h:commandButton>
-                </h:form>
+                    <input type="submit" value="Procurar" class="button small radius"></input>
+                </form>
             </p:panel>
         </div>
         

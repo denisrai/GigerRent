@@ -99,3 +99,12 @@ button { margin-bottom: 0; }
     box-shadow: 0px 16px 20px -20px #000;
     padding: 10px 0;    
 }
+
+#content-search_content .ui-corner-all {
+    border: none;
+    list-style: none;
+}
+
+#content-search_list > li{
+    margin-bottom: 15px;
+}

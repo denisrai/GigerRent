@@ -63,6 +63,10 @@ public class Carro implements Serializable
     @JoinTable(name = "Carro_has_Aluguel", joinColumns = {@JoinColumn(name = "idCarro")},
             inverseJoinColumns = {@JoinColumn(name = "idAluguel")})
     Set<Aluguel> alugueis = new HashSet<Aluguel>();
+    
+    @Lob
+    @Column(name="carImage", nullable=true, columnDefinition="mediumblob")
+    private byte[] image;
 
     public int getIdCarro() {
         return idCarro;
@@ -151,6 +155,13 @@ public class Carro implements Serializable
     public void setAlugueis(Set<Aluguel> alugueis) {
         this.alugueis = alugueis;
     }
-    
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
     
 }

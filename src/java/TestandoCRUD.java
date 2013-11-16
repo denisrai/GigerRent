@@ -8,14 +8,14 @@ public class TestandoCRUD {
 
     public static void main(String[] args) {
         
-        UsuarioDao user_dao = new UsuarioDao();
-        
-        Funcionario admin = new Funcionario();
-        admin.setUsername("root");
-        admin.setPassword("123");
-        admin.setEnable(true);
-        admin.setPermissoes("ROLE_ADMIN");
-        user_dao.inserir(admin);
+//        UsuarioDao user_dao = new UsuarioDao();
+//        
+//        Funcionario admin = new Funcionario();
+//        admin.setUsername("root");
+//        admin.setPassword("123");
+//        admin.setEnable(true);
+//        admin.setPermissoes("ROLE_ADMIN");
+//        user_dao.inserir(admin);
         
 //        Cliente user = new Cliente();
 //        user.setEnable(true);

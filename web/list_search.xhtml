@@ -18,7 +18,7 @@
                         <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
                         <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
                         
-                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                        <p:commandButton styleClass="button tiny radius" value="Atualizar" update="content-search"/> 
                     </fieldset>
                 </h:form>
                 
@@ -28,7 +28,7 @@
                         <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
                         <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
                         
-                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                        <p:commandButton styleClass="button tiny radius" value="Atualizar" update="content-search"/> 
                     </fieldset>
                 </h:form>
                 
@@ -38,18 +38,18 @@
                         <label for="checkbox1"><input name="localizacoes[]" type="checkbox" id="checkbox1"/><span class="checkbox"></span>Todas</label>
                         <label for="checkbox2"><input name="localizacoes[]" type="checkbox" id="checkbox2"/><span class="checkbox"></span>Aeroporto</label>
                         
-                        <p:commandButton styleClass="tiny radius" value="Atualizar" update="content-search"/> 
+                        <p:commandButton styleClass="button tiny radius" value="Atualizar" update="content-search"/> 
                     </fieldset>
                 </h:form>
             </p:panel>
         </div>
         
         <div class="columns large-9 box-search-cars">
-            <p:panel id="content-search">
+            <p:dataList id="content-search" value="#{carroController.listarCarrosDisponiveis}" var="car"> 
                 <div class="item-carro row">
                     <div class="columns large-12 title-item">
                         <div>
-                            <span>Celta</span>
+                            <strong>#{car.modelo.nomeModelo}</strong>
                         </div>
                     </div>
                     
@@ -59,22 +59,37 @@
                     
                     <div class="columns large-8 car-info left">
                         <div class="left">
-                            <p>Descricao de cada carro</p>
+                            <ul>
+                                <li>
+                                    <span>Placa: </span>#{car.placa}
+                                </li>
+                                <li>
+                                    <span>Ano: </span>#{car.ano}
+                                </li>
+                                <li>
+                                    <span>Renavam: </span>#{car.renavam}
+                                </li>
+                                <li>
+                                    <span>Cor: </span>#{car.cor.nomeCor}
+                                </li>
+                                <li>
+                                    <span>Tipo do carro: </span>#{car.tipoCarro.nomeTipoCarro}
+                                </li>
+                            </ul>
                         </div>
                         
                         <div class="container-valor-aluguel right">
-                            <h5>R$71,37/dia</h5>
-                            <a class="button small radius right" href="/GigerRent/car_view.jsf">Alugar</a>
+                            <h5>R$#{car.valorAluguel}/dia</h5>
+                            <form action="car_view.jsf" method="GET">
+                                <input name="id_carro" type="hidden" value="#{car.idCarro}" />
+                                <input class="button small radius right" type="submit" value="Alugar"/>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </p:panel>
+            </p:dataList>
         </div>
-        
-        
-        
     </ui:define>
-
 </ui:composition>
 
 
