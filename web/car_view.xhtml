@@ -21,12 +21,30 @@
                 <div class="columns large-8">
                     <div class="container-info">
                         <h3>#{carroController.carro.modelo.nomeModelo}</h3>
-                        <p>Descrição</p>
+                        <ul class="no-bullet">
+                            <li>
+                                <strong>Placa: </strong>#{carroController.carro.placa}
+                            </li>
+                            <li>
+                                <strong>Ano: </strong>#{carroController.carro.ano}
+                            </li>
+                            <li>
+                                <strong>Renavam: </strong>#{carroController.carro.renavam}
+                            </li>
+                            <li>
+                                <strong>Cor: </strong>#{carroController.carro.cor.nomeCor}
+                            </li>
+                            <li>
+                                <strong>Tipo do carro: </strong>#{carroController.carro.tipoCarro.nomeTipoCarro}
+                            </li>
+                        </ul>
 
-                        <h2>Valor Total R$1.047,20</h2>
+                        <h2>Valor Total R$#{carroController.carro.valorAluguel}/dia</h2>
                         <span>Parcelas de até 10x sem juros em seu catao de credito</span>
 
-                        <a class="button small radius">Solicitar Reserva</a>
+                        <form action="#{not empty usuarioController.usuario ? 'confirma_aluguel.jsf' : 'cadastro_usuario.jsf'}">
+                            <input class="button small radius" type="submit" name="sumit" value="Solicitar Reserva" />
+                        </form>
                     </div>
                 </div>
             </div>
@@ -36,7 +54,7 @@
                     <p class="title" data-section-title="a"><a href="#carac">Características</a></p>
                     
                     <div class="content clear" data-section-content="a">
-                        <h4>Características do Grupo
+                        <h4>Características do modelo
                             <hr/>
                         </h4>
 
@@ -45,24 +63,21 @@
                         </div>
 
                         <div class="columns large-8">
-                            <h3>Nome do carro</h3>
-                            <p>Descrição</p>
-
                             <ul class="no-bullet">
                                 <li>
-                                    <span class="left">Motorização</span>
-
-                                    <span clas="right">1.0</span>
+                                    <strong>Placa: </strong>#{carroController.carro.placa}
                                 </li>
                                 <li>
-                                    <span class="left">Portas</span>
-
-                                    <span clas="right">2</span>
+                                    <strong>Ano: </strong>#{carroController.carro.ano}
                                 </li>
                                 <li>
-                                    <span class="left">Ocupantes</span>
-
-                                    <span clas="right">5</span>
+                                    <strong>Renavam: </strong>#{carroController.carro.renavam}
+                                </li>
+                                <li>
+                                    <strong>Cor: </strong>#{carroController.carro.cor.nomeCor}
+                                </li>
+                                <li>
+                                    <strong>Tipo do carro: </strong>#{carroController.carro.tipoCarro.nomeTipoCarro}
                                 </li>
                             </ul>
                         </div>
@@ -99,8 +114,8 @@
             </div>
         </div>
         
-        <div class="columns large-3">
-            <p:panel header="Por que reservar pela RentCars?">
+        <div class="columns large-3 info-rent">
+            <p:panel header="Por que escolher a Ginger Rent?">
                 <div class="box_c_content">
                   <ul class="no-bullet">
                     <li>

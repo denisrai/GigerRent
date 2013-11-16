@@ -19,4 +19,11 @@ public class UsuarioDao extends GenericDAO<Usuario> implements Serializable {
     public UsuarioDao() {
         super(Usuario.class);
     }
+    
+    public Usuario getUserByUsername(String username){
+        iniciarTransacao();
+        Usuario user = (Usuario)sessao.createQuery("from Usuario WHERE username = :username").setParameter("username", username).uniqueResult();
+        fecharTransacao();
+        return user;
+    }
 }

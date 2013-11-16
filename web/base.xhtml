@@ -27,10 +27,30 @@
                             <img src="img/logo_black.png" title="Ginger Rent" alt="Ginger Rent"/>
                         </a>
                     </div>
+                    
                     <div class="columns large-3">
-                        <div>
-                            <a href="login.jsf" class="button small radius">Login</a>
-                        </div>
+                        <h:panelGroup rendered="#{not empty usuarioController.usuario}">
+                            <div class="right">
+                                Bem vindo, <strong>#{usuarioController.usuario.nome}</strong>
+                            </div>
+                            <div class="right">
+                                <a href="protected/admin/lojas_crud.jsf" class="button small radius">Área do admnistrador</a>
+                            </div>
+                            <div class="right">
+                                <h:outputLink styleClass="button small radius" value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
+                                    <h:outputText value="Sair"/>
+                                </h:outputLink>
+                            </div>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{empty usuarioController.usuario}">
+                            <div class="right">
+                                <a href="login.jsf" class="button small radius">Login</a>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="right">
+                                <a href="cadastro_usuario.jsf" class="button small radius">Cadastrar-se</a>
+                            </div>
+                        </h:panelGroup>
                     </div>
                 </div>
             </div>
