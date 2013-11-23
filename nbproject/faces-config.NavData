@@ -2,14 +2,18 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="filtro.xhtml" x="1400" y="300" zoom="true"/>
-        <Node id="car_view.xhtml" x="1900" y="450" zoom="true"/>
-        <Node id="list_search.xhtml" x="2150" y="300" zoom="true"/>
-        <Node id="template.xhtml" x="1150" y="150" zoom="true"/>
-        <Node id="cadastro_usuario.xhtml" x="1400" y="150" zoom="true"/>
-        <Node id="homepage.xhtml" x="150" y="1050" zoom="true"/>
         <Node id="login.xhtml" x="1150" y="1350" zoom="true"/>
+        <Node id="protected/admin/cidades_crud.xhtml" x="150" y="150" zoom="true"/>
         <Node id="base.xhtml" x="2150" y="750" zoom="true"/>
+        <Node id="template.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="car_view.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="homepage.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="protected/admin/carro_crud.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="filtro.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="protected/admin/lojas_crud.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="list_search.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="protected/admin/templateCrud.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="cadastro_usuario.xhtml" x="1400" y="150" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

@@ -1,0 +1,103 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Confirma aluguel
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="columns large-9">
+            <p:panel header="Dados do locatário">
+                <div class="row container-user">
+                    <div class="columns large-8">
+                        <div class="container-info">
+                            <h5>Reserva no nome de #{usuarioController.usuario.nome}</h5>
+                        </div>
+                    </div>
+                </div>
+            </p:panel>
+            <p:panel header="Dados do veículo">
+                <div class="row container-car">
+                    <div class="columns large-4">
+                         <div class="image-car left">
+                            <img alt="Palio" src="img/carros/palio.png" />
+                        </div>
+                    </div>
+
+                    <div class="columns large-8">
+                        <div class="container-info">
+                            <h3>#{aluguelController.carro.modelo.nomeModelo}</h3>
+                            <ul class="no-bullet">
+                                <li>
+                                    <strong>Placa: </strong>#{aluguelController.carro.placa}
+                                </li>
+                                <li>
+                                    <strong>Ano: </strong>#{aluguelController.carro.ano}
+                                </li>
+                                <li>
+                                    <strong>Renavam: </strong>#{aluguelController.carro.renavam}
+                                </li>
+                                <li>
+                                    <strong>Cor: </strong>#{aluguelController.carro.cor.nomeCor}
+                                </li>
+                                <li>
+                                    <strong>Tipo do carro: </strong>#{aluguelController.carro.tipoCarro.nomeTipoCarro}
+                                </li>
+                            </ul>
+
+                            <h2>Valor Total R$#{aluguelController.carro.valorAluguel}/dia</h2>
+
+                            <h:form>
+                                <h:inputHidden  value="#{usuarioController.usuario}"></h:inputHidden>
+                                
+                                <p:commandButton actionListener="#{aluguelController.cadastraAluguel}"
+                                             action="#{aluguelController.continuaAluguel}"
+                                             value="Concluir seu aluguel" 
+                                             styleClass="button small radius" 
+                                             ajax="false" >
+                                    <!--f:param name="id_carro" value="#{usuarioController.usuario}" /-->
+                                </p:commandButton>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </p:panel>
+        </div>
+        
+        <div class="columns large-3 info-rent">
+            <p:panel header="Por que escolher a Ginger Rent?">
+                <div class="box_c_content">
+                  <ul class="no-bullet">
+                    <li>
+                      <strong>Descontos Exclusivos</strong>
+                      <span>todas as locadoras oferecem os melhores preços e descontos através da Ginger Rent.</span>
+                    </li>
+
+                    <li>
+                      <strong>Pagamento Direto com a Locadora</strong>
+                      <span>solicite sua reserva de carro online e pague direto com a locadora no dia da retirada do veículo.</span>
+                    </li>
+
+
+                    <li>
+                      <strong>Alugue com Segurança e Tranquilidade</strong>
+                      <span> através da Ginger Rent você conta com total segurança e praticidade para alugar um carro no Brasil e exterior.</span>
+                    </li>
+                    <li>
+                      <strong>Central de Reservas 4003-GING</strong>
+                      <span>esclareça suas dúvidas e obtenha todas as informações necessárias antes de alugar um carro, fale com a Central de Reservas Ginger Rent 4003-7368 - Atendimento para todo Brasil.</span>
+                    </li>
+                  </ul>	
+                </div>
+            </p:panel>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>
+
+

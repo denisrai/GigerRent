@@ -14,7 +14,7 @@
         <form-login login-page="/login.jsf" authentication-failure-url="/cadastro_usuario.jsf?erro=true"/>
     </http>
      
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query="SELECT username, password, enable FROM usuario WHERE username=?"

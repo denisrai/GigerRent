@@ -34,7 +34,6 @@
                         <h6>Locatário titular da reserva
                             <hr/>
                         </h6>
-                        
                         <h:form prependId="false">
                             <h:outputLabel value="Nome:"/>
                             <h:inputText value="#{usuarioController.novoUsuario.nome}" label="Nome:"></h:inputText>
@@ -42,8 +41,8 @@
                             <h:outputLabel value="Nome de usuário:"/>
                             <h:inputText value="#{usuarioController.novoUsuario.username}" label="Nome de usuário:"></h:inputText>
                             
-                            <h:outputLabel value="Data de nascimento:"/>
-                            <h:inputText value="#{usuarioController.novoUsuario.dataNascimento}" label="Data de nascimento:"/> 
+                            <!--h:outputLabel value="Data de nascimento:"/>
+                            <h:inputText value="#{usuarioController.novoUsuario.dataNascimento}" label="Data de nascimento:"/--> 
                             
                             <h:outputLabel value="Número da CNH"/>
                             <h:inputText value="#{usuarioController.novoUsuario.CNH}" label="Número da CNH:"></h:inputText>
@@ -85,9 +84,14 @@
                                 </tbody>
                             </table>
                             
-                            <p:commandButton actionListener="#{usuarioController.cadastrarUsuario}" value="Finalizar Solicitação de Reserva" styleClass="button small radius" ajax="false" ></p:commandButton>
+                            <p:commandButton actionListener="#{usuarioController.cadastrarUsuario}"
+                                             action="#{usuarioController.continuaAluguel}"
+                                             value="Finalizar Solicitação de Reserva" 
+                                             styleClass="button small radius" 
+                                             ajax="false" >
+                                <f:param name="id_carro" value="#{usuarioController.idCarSelected}" />
+                            </p:commandButton>
                         </h:form>
-                        
                     </p:panel>
                     
                     

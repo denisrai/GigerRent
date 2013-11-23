@@ -1,0 +1,48 @@
+<ui:composition template="base.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Fale conosco
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="columns large-12">
+            <p:panel header="Fale Conosco">
+                <h:form prependId="false">
+                    <h:outputLabel value="Nome:"/>
+                    <h:inputText value="#{usuarioController.novoUsuario.nome}" label="Nome:"></h:inputText>
+
+                    <h:outputLabel value="Email:"/>
+                    <h:inputText value="#{usuarioController.novoUsuario.username}" label="Email:"></h:inputText>
+
+                    <h:outputLabel value="Telefone:"/>
+                    <h:inputText value="#{usuarioController.novoUsuario.telefone}" label="Telefone:"></h:inputText>
+
+                    <h:outputLabel value="Assunto:"/>
+                    <h:selectOneMenu value="#{sacController.sacTipo}">
+                        <f:selectItem itemValue="" itemLabel="Selecione..." />
+                        <f:selectItems value="#{sacController.todosTiposSacs}" />
+                    </h:selectOneMenu>
+                    
+                    <textArea name="content-sac" class="text-area" rows="30" />
+
+                    <p:commandButton actionListener="#{usuarioController.cadastrarUsuario}"
+                                     action="#{usuarioController.continuaAluguel}"
+                                     value="Enviar mensagem" 
+                                     styleClass="button small radius" 
+                                     ajax="false" >
+                        <f:param name="id_carro" value="#{usuarioController.idCarSelected}" />
+                    </p:commandButton>
+                    
+                    <p style="font-size: 12px;">Todas as mensagens são respondidas em até 12 horas por e-mail dentro no nosso horário comercial de atendimento.</p>
+                </h:form>
+            </p:panel>
+        </div>
+    </ui:define>
+</ui:composition>
+
+

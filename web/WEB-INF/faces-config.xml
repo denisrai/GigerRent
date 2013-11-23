@@ -9,4 +9,18 @@
     <application>
 
     </application>
+    
+    <navigation-rule>
+        <from-view-id>/cadastro_usuario.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>confimaAluguel</from-outcome>
+            <to-view-id>/confirma_aluguel.xhtml</to-view-id>
+            <redirect>
+                <view-param>
+                    <name>idCarro</name>
+                    <value>#{usuarioController.idCarSelected}</value>
+                </view-param>
+            </redirect>
+        </navigation-case>
+   </navigation-rule>
 </faces-config>

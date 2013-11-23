@@ -17,17 +17,30 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
+import org.primefaces.event.FileUploadEvent;
   
 import org.primefaces.model.UploadedFile;  
 
 @ManagedBean
-@ViewScoped
+//@ViewScoped
+@RequestScoped
 public class CarroController implements Serializable {
+    
+    //Primitives
+    private static final int BUFFER_SIZE = 6124;  
     
     private CarroDao carroDao = new CarroDao();
     
@@ -96,6 +109,45 @@ public class CarroController implements Serializable {
             carro.setImage(image_car.getContents());
         }
         carroDao.atualiza(carro);
+    }
+    
+    public void handleFileUpload(FileUploadEvent event) {
+        ExternalContext extContext = FacesContext.getCurrentInstance().getExternalContext();
+        File result = new File(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));
+        System.out.println(extContext.getRealPath("//WEB-INF//files//" + event.getFile().getFileName()));
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(result);
+
+            byte[] buffer = new byte[BUFFER_SIZE];
+
+            int bulk;
+            InputStream inputStream = event.getFile().getInputstream();
+            while (true) {
+                bulk = inputStream.read(buffer);
+                if (bulk < 0) {
+                    break;
+                }
+                fileOutputStream.write(buffer, 0, bulk);
+                fileOutputStream.flush();
+            }
+
+            fileOutputStream.close();
+            inputStream.close();
+
+            FacesMessage msg =
+                    new FacesMessage("File Description", "file name: "
+                    + event.getFile().getFileName() + "file size: " +
+                    event.getFile().getSize() / 1024 + " Kb content type: " +
+                    event.getFile().getContentType() + " The file was uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            FacesMessage error = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "The files were not uploaded!", "");
+            FacesContext.getCurrentInstance().addMessage(null, error);
+        }
     }
     
 }

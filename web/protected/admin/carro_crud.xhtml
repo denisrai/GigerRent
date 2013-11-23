@@ -7,11 +7,11 @@
 
     <ui:define name="content_crud">
         <h1>Gerenciador de carros</h1><br/>
-        <h:outputText value="Bem vindo #{usuarioController.usuario.username}, seus são:"/>
+        <h:outputText value="Bem vindo #{usuarioController.usuario.nome}, seus carros são:"/>
         <br/><br/>
         
         <h:form prependId="false">
-            <p:commandLink value="Cadastrar nova carro" actionListener="#{carroController.prepararAdicionarCarro}" update="infosCarro" oncomplete="dialogGerCarro.show()"/>
+            <p:commandLink value="Cadastrar nova carro" actionListener="#{carroController.prepararAdicionarCarro}" update=":infosCarro" oncomplete="dialogGerCarro.show()"/>
         </h:form>
         
         <h:form prependId="false">
@@ -32,7 +32,7 @@
                     <f:facet name="header">
                         <h:outputText value="Alterar"/>
                     </f:facet>
-                    <p:commandButton actionListener="#{carroController.prepararAlterarCarro}" value="Alterar" update="infosCarro" oncomplete="dialogGerCarro.show()"/>
+                    <p:commandButton actionListener="#{carroController.prepararAlterarCarro}" value="Alterar" update=":infosCarro" oncomplete="dialogGerCarro.show()"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
@@ -45,17 +45,29 @@
     </ui:define>
 
     <ui:define name="dialog_crud">
-        <p:dialog header="Gerencia de carros" widgetVar="dialogGerCarro" resizable="false" modal="true" showEffect="slide" width="500"> 
-            <h:form prependId="false" enctype="multipart/form-data">
-                <h:panelGrid id="infosCarro" columns="2" style="margin-bottom:10px">
+        <p:dialog id="infosCarro" header="Gerencia de carros" widgetVar="dialogGerCarro" resizable="false" modal="true" showEffect="slide" width="500"> 
+            <h:form enctype="multipart/form-data">
+                <p:fileUpload fileUploadListener="#{carroController.handleFileUpload}"
+                            mode="advanced"
+                            update="messages"
+                            label="Choose a file"
+                            sizeLimit="1048576"
+                            allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+                            invalidSizeMessage="The maximum file size allowed is 1 Megabyte !"
+                            invalidFileMessage="You are allowed to upload only images !"/>
+                <p:growl id="messages" showDetail="true" sticky="true"/>
+            </h:form>
+            
+            <h:form prependId="false">
+                <h:panelGrid columns="2" style="margin-bottom:10px">
  
                     <h:outputLabel for="titulo" value="Nome" />
                     <h:inputText id="titulo" value="#{carroController.carro.placa}"/>
                     
-                    <p:fileUpload value="#{carroController.image_car}" auto="true" mode="simple" /> 
+                    <!--p:fileUpload value="#{carroController.image_car}" auto="true" mode="simple" /--> 
 
-                    <p:commandButton update="tabela" oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.adicionarCarro}" value="Inserir"/>
-                    <p:commandButton update="tabela" oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.alterarCarro}" value="Alterar"/>
+                    <p:commandButton oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.adicionarCarro}" value="Inserir"/>
+                    <p:commandButton oncomplete="dialogGerCarro.hide();" actionListener="#{carroController.alterarCarro}" value="Alterar"/>
  
                 </h:panelGrid>
             </h:form>

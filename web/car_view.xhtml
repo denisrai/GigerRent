@@ -40,10 +40,12 @@
                         </ul>
 
                         <h2>Valor Total R$#{carroController.carro.valorAluguel}/dia</h2>
+                        <br/><br/>
                         <span>Parcelas de até 10x sem juros em seu catao de credito</span>
 
                         <form action="#{not empty usuarioController.usuario ? 'confirma_aluguel.jsf' : 'cadastro_usuario.jsf'}">
                             <input type="hidden" name="from_reserva" value="#{carroController.carro.idCarro}" />
+                            <input type="hidden" name="id_user" value="#{usuarioController.usuario.id}" />
                             <input class="button small radius" type="submit" name="sumit" value="Solicitar Reserva" />
                         </form>
                     </div>
@@ -121,22 +123,20 @@
                   <ul class="no-bullet">
                     <li>
                       <strong>Descontos Exclusivos</strong>
-                      <span>todas as locadoras oferecem os melhores preços e descontos através da RentCars.</span>
+                      <span>todas as locadoras oferecem os melhores preços e descontos através da Ginger Rent.</span>
                     </li>
 
                     <li>
                       <strong>Pagamento Direto com a Locadora</strong>
                       <span>solicite sua reserva de carro online e pague direto com a locadora no dia da retirada do veículo.</span>
                     </li>
-
-
                     <li>
                       <strong>Alugue com Segurança e Tranquilidade</strong>
-                      <span> através da RentCars você conta com total segurança e praticidade para alugar um carro no Brasil e exterior.</span>
+                      <span> através da Ginger Rent você conta com total segurança e praticidade para alugar um carro no Brasil e exterior.</span>
                     </li>
                     <li>
                       <strong>Central de Reservas 4003-RENT</strong>
-                      <span>esclareça suas dúvidas e obtenha todas as informações necessárias antes de alugar um carro, fale com a Central de Reservas RentCars 4003-7368 - Atendimento para todo Brasil.</span>
+                      <span>esclareça suas dúvidas e obtenha todas as informações necessárias antes de alugar um carro, fale com a Central de Reservas Ginger Rent 4003-7368 - Atendimento para todo Brasil.</span>
                     </li>
                   </ul>	
                 </div>

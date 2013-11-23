@@ -22,7 +22,7 @@
         <div id="wrap">
             <div class="container-header">
                 <div class="row header">
-                    <div class="columns large-3 portal-logo left">
+                    <div class="columns large-4 portal-logo left">
                         <a alt="Página inicial" href="/GigerRent/">
                             <img src="img/logo_black.png" title="Ginger Rent" alt="Ginger Rent"/>
                         </a>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="clear"></div>
                             <div class="right">
-                                <a href="login.jsf" class="button small radius">Login</a>
+                                <a href="cadastro_usuario.jsf" class="button small radius">Login</a>
                             </div>
                         </h:panelGroup>
                     </div>
@@ -69,6 +69,8 @@
                                         <li class="#{request.requestURI == '/GigerRent/' ? 'active' : ''}"><a href="/GigerRent/">Principal</a></li>
                                         <li class="divider"></li>
                                         <li class="#{request.requestURI == '/GigerRent/list_search.jsf' ? 'active' : ''}"><a href="/GigerRent/list_search.jsf">Carros</a></li>
+                                        <li class="divider"></li>
+                                        <li class="#{request.requestURI == '/GigerRent/fale_conosco.jsf' ? 'active' : ''}"><a href="/GigerRent/fale_conosco.jsf">Fale Conosco</a></li>
                                     </ul>
                                 </section>
                             </nav>
