@@ -48,7 +48,10 @@
                             <h:inputText value="#{usuarioController.novoUsuario.CNH}" label="Número da CNH:"></h:inputText>
                             
                             <h:outputLabel value="Número do CPF/CNPJ"/>
-                            <h:inputText value="#{usuarioController.novoUsuario.CPF_CNPJ}" label="Número do CPF/CNPJ:"></h:inputText>
+                            <h:message for="cpf" style="color:red" />
+                            <h:inputText id="cpf" required="true" value="#{usuarioController.novoUsuario.CPF_CNPJ}" label="Número do CPF/CNPJ:">
+                                <f:validator validatorId="br.com.gr.controller.ValidadorCpf" /> 
+                            </h:inputText>
                             
                             <div>
                                 <h:outputLabel value="Sexo"/>
@@ -83,10 +86,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            
+
                             <p:commandButton actionListener="#{usuarioController.cadastrarUsuario}"
-                                             action="#{usuarioController.continuaAluguel}"
-                                             value="Finalizar Solicitação de Reserva" 
+                                             value="Concluir cadastro" 
                                              styleClass="button small radius" 
                                              ajax="false" >
                                 <f:param name="id_carro" value="#{usuarioController.idCarSelected}" />

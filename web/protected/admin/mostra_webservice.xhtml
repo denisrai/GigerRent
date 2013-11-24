@@ -1,0 +1,30 @@
+<ui:composition template="templateCrud.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content_crud">
+        <h1>Lista dados webservice</h1><br/>
+        <br/><br/>
+        
+        <div>
+            #{webServiceController.listaDeCores}
+        </div>
+        
+        <h:form>
+            <h:outputLabel for="id" value="ID da cor" />
+            <h:inputText id="id" value="#{webServiceController.novaCor.idCor}"/>
+            
+            <h:outputLabel for="nome" value="Nome da cor" />
+            <h:inputText id="nome" value="#{webServiceController.novaCor.nomeCor}"/>
+            
+            <p:commandButton actionListener="#{webServiceController.adicionarCor}" value="Inserir"/>
+            
+        </h:form>
+        
+    </ui:define>
+</ui:composition>
+
+

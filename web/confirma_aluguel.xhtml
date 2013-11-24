@@ -52,10 +52,7 @@
                             <h2>Valor Total R$#{aluguelController.carro.valorAluguel}/dia</h2>
 
                             <h:form>
-                                <h:inputHidden  value="#{usuarioController.usuario}"></h:inputHidden>
-                                
                                 <p:commandButton actionListener="#{aluguelController.cadastraAluguel}"
-                                             action="#{aluguelController.continuaAluguel}"
                                              value="Concluir seu aluguel" 
                                              styleClass="button small radius" 
                                              ajax="false" >

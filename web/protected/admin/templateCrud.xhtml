@@ -11,10 +11,22 @@
     </h:head>
     <h:body>
         <p:layout fullPage="true">
-            <p:layoutUnit position="west" header="Tabelas" resizable="true" closable="true" collapsible="true">
+            <p:layoutUnit size="300" position="west" header="Menu" resizable="true" closable="true" collapsible="true">
                 <ul class="no-bullet">
-                    <li><a href="lojas_crud.jsf">Lojas</a></li>
+                    <li><a href="lojas_crud.jsf">Cadastro de lojas</a></li>
+                    <li><a href="carro_crud.jsf">Cadastro de carros</a></li>
                 </ul>
+                <h:form>
+                    <p:commandButton actionListener="#{aluguelController.imprimeRelatorioAluguel}" value="Ralatório"/>
+                </h:form>
+                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/mostra_graficos.jsf">
+                    <h:outputText value="Dashboard"/>
+                </h:outputLink>
+                <br />
+                <h:outputLink value="#{facesContext.externalContext.requestContextPath}/mostra_webservice.jsf">
+                    <h:outputText value="Web Service"/>
+                </h:outputLink>
+                <br />
                 <h:outputLink value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
                     <h:outputText value="Sair"/>
                 </h:outputLink>

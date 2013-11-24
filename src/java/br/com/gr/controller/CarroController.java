@@ -1,24 +1,14 @@
 package br.com.gr.controller;
 
 import br.com.gr.dao.CarroDao;
-import br.com.gr.dao.CidadeDao;
-import br.com.gr.dao.UFDao;
-import br.com.gr.dao.CarroDao;
 import br.com.gr.model.Carro;
-
-import br.com.gr.model.Cidade;
-import br.com.gr.model.Carro;
-import br.com.gr.model.UF;
-import java.io.InputStream;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
